@@ -1,0 +1,27 @@
+Running from: /home/ubuntu/fantasy-cricket-backend/jenkins.war
+webroot: /home/ubuntu/.jenkins/war
+2025-05-09 09:09:18.684+0000 [id=1]	INFO	winstone.Logger#logInternal: Beginning extraction from war file
+2025-05-09 09:09:18.839+0000 [id=1]	WARNING	o.e.j.ee9.nested.ContextHandler#setContextPath: Empty contextPath
+2025-05-09 09:09:18.997+0000 [id=1]	INFO	org.eclipse.jetty.server.Server#doStart: jetty-12.0.20; built: 2025-04-29T18:00:10.257Z; git: 5b3be0401c49f42a4b5802c53668d95da1af3f74; jvm 17.0.15+6-Ubuntu-0ubuntu124.04
+2025-05-09 09:09:20.221+0000 [id=1]	INFO	o.e.j.e.w.StandardDescriptorProcessor#visitServlet: NO JSP Support for /, did not find org.eclipse.jetty.ee9.jsp.JettyJspServlet
+2025-05-09 09:09:20.338+0000 [id=1]	INFO	o.e.j.s.DefaultSessionIdManager#doStart: Session workerName=node0
+2025-05-09 09:09:21.468+0000 [id=1]	INFO	hudson.WebAppMain#contextInitialized: Jenkins home directory: /home/ubuntu/.jenkins found at: $user.home/.jenkins
+2025-05-09 09:09:21.759+0000 [id=1]	INFO	o.e.j.s.handler.ContextHandler#doStart: Started oeje9n.ContextHandler$CoreContextHandler@ea27e34{Jenkins v2.509,/,b=file:///home/ubuntu/.jenkins/war/,a=AVAILABLE,h=oeje9n.ContextHandler$CoreContextHandler$CoreToNestedHandler@33a2499c{STARTED}}
+2025-05-09 09:09:21.803+0000 [id=1]	INFO	o.e.j.server.AbstractConnector#doStart: Started ServerConnector@36dce7ed{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2025-05-09 09:09:21.848+0000 [id=1]	INFO	org.eclipse.jetty.server.Server#doStart: Started oejs.Server@3daa422a{STARTING}[12.0.20,sto=0] @4446ms
+2025-05-09 09:09:21.851+0000 [id=24]	INFO	winstone.Logger#logInternal: Winstone Servlet Engine running: controlPort=disabled
+2025-05-09 09:09:22.100+0000 [id=23]	INFO	jenkins.model.Jenkins#<init>: Starting version 2.509
+2025-05-09 09:09:22.342+0000 [id=29]	INFO	jenkins.InitReactorRunner$1#onAttained: Started initialization
+2025-05-09 09:09:22.637+0000 [id=30]	INFO	jenkins.InitReactorRunner$1#onAttained: Listed all plugins
+2025-05-09 09:09:29.202+0000 [id=30]	INFO	jenkins.InitReactorRunner$1#onAttained: Prepared all plugins
+2025-05-09 09:09:29.345+0000 [id=30]	INFO	jenkins.InitReactorRunner$1#onAttained: Started all plugins
+2025-05-09 09:09:30.773+0000 [id=30]	INFO	h.p.b.g.GlobalTimeOutConfiguration#load: global timeout not set
+2025-05-09 09:09:30.887+0000 [id=29]	INFO	jenkins.InitReactorRunner$1#onAttained: Augmented all extensions
+2025-05-09 09:09:32.141+0000 [id=29]	INFO	jenkins.InitReactorRunner$1#onAttained: System config loaded
+2025-05-09 09:09:32.144+0000 [id=29]	INFO	jenkins.InitReactorRunner$1#onAttained: System config adapted
+2025-05-09 09:09:32.469+0000 [id=29]	INFO	jenkins.InitReactorRunner$1#onAttained: Loaded all jobs
+2025-05-09 09:09:32.471+0000 [id=30]	INFO	jenkins.InitReactorRunner$1#onAttained: Configuration for all jobs updated
+2025-05-09 09:09:32.570+0000 [id=29]	INFO	jenkins.InitReactorRunner$1#onAttained: Completed initialization
+2025-05-09 09:09:32.631+0000 [id=23]	INFO	hudson.lifecycle.Lifecycle#onReady: Jenkins is fully up and running
+2025-05-09 09:09:37.738+0000 [id=50]	WARNING	h.n.DiskSpaceMonitorDescriptor#markNodeOfflineOrOnline: Making Built-In Node offline temporarily due to the lack of disk space
+2025-05-09 09:10:05.110+0000 [id=60]	WARNING	j.m.api.Metrics$HealthChecker#execute: Some health checks are reporting as unhealthy: [disk-space : Only 0.711 Gb free on (controller), temporary-space : Only 0.711 Gb free on (controller)]
