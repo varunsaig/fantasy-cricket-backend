@@ -26,19 +26,21 @@ pipeline {
             }
         }
 
-        stage('Run Docker Container') {
-            steps {
-                sh """
-                   # Stop and remove the old container if exists
-                   docker rm -f $CONTAINER_NAME || true
+       stage('Run Docker Container') {
+    steps {
+        sh """
+            # Stop and remove any existing container
+            docker rm -f $CONTAINER_NAME || true
 
-                   # Kill any process listening on the port to free it
-                   fuser -k $PORT/tcp || true
+            # Kill any process using the port (safety check)
+            fuser -k $PORT/tcp || true
 
-                   # Run the new container
-                   docker run -d -p $PORT:$PORT --name $CONTAINER_NAME $IMAGE_NAME
-                """
-            }
-        }
+            # Wait a second for cleanup
+            sleep 2
+
+            # Run the container
+            docker run -d -p $PORT:$PORT --name $CONTAINER_NAME $IMAGE_NAME
+        """
     }
 }
+
