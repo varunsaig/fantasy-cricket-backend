@@ -26,21 +26,22 @@ pipeline {
             }
         }
 
-       stage('Run Docker Container') {
-    steps {
-        sh """
-            # Stop and remove any existing container
-            docker rm -f $CONTAINER_NAME || true
+        stage('Stop and Remove Existing Container') {
+            steps {
+                script {
+                    // Stop container if running
+                    sh "docker ps -q -f name=$CONTAINER_NAME | grep -q . && docker stop $CONTAINER_NAME || echo 'No container running'"
 
-            # Kill any process using the port (safety check)
-            fuser -k $PORT/tcp || true
+                    // Remove container if exists
+                    sh "docker ps -aq -f name=$CONTAINER_NAME | grep -q . && docker rm $CONTAINER_NAME || echo 'No container to remove'"
+                }
+            }
+        }
 
-            # Wait a second for cleanup
-            sleep 2
-
-            # Run the container
-            docker run -d -p $PORT:$PORT --name $CONTAINER_NAME $IMAGE_NAME
-        """
+        stage('Run Docker Container') {
+            steps {
+                sh "docker run -d -p $PORT:$PORT --name $CONTAINER_NAME $IMAGE_NAME"
+            }
+        }
     }
 }
-
