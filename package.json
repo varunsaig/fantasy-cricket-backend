@@ -1,7 +1,6 @@
 {
   "name": "fantasy-cricket-backend",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,5 +10,15 @@
   "license": "ISC",
   "dependencies": {
     "express": "^5.1.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/varunsaig/fantasy-cricket-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/varunsaig/fantasy-cricket-backend/issues"
+  },
+  "homepage": "https://github.com/varunsaig/fantasy-cricket-backend#readme",
+  "description": ""
 }
