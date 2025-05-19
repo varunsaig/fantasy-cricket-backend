@@ -25,3 +25,39 @@ webroot: /home/ubuntu/.jenkins/war
 2025-05-09 09:09:32.631+0000 [id=23]	INFO	hudson.lifecycle.Lifecycle#onReady: Jenkins is fully up and running
 2025-05-09 09:09:37.738+0000 [id=50]	WARNING	h.n.DiskSpaceMonitorDescriptor#markNodeOfflineOrOnline: Making Built-In Node offline temporarily due to the lack of disk space
 2025-05-09 09:10:05.110+0000 [id=60]	WARNING	j.m.api.Metrics$HealthChecker#execute: Some health checks are reporting as unhealthy: [disk-space : Only 0.711 Gb free on (controller), temporary-space : Only 0.711 Gb free on (controller)]
+2025-05-10 09:09:32.514+0000 [id=6036]	INFO	hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+2025-05-10 09:09:38.886+0000 [id=6036]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.tasks.Maven.MavenInstaller
+2025-05-10 09:09:40.389+0000 [id=6036]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.tasks.Ant.AntInstaller
+2025-05-10 09:09:41.951+0000 [id=6036]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.plugins.gradle.GradleInstaller
+2025-05-10 09:09:41.951+0000 [id=6036]	INFO	hudson.util.Retrier#start: Performed the action check updates server successfully at the attempt #1
+2025-05-10 11:18:39.510+0000 [id=19]	WARNING	o.e.j.u.thread.QueuedThreadPool#onJobFailure: Job failed
+java.lang.IllegalStateException: already released ReferenceCounter@2664d92[r=0]
+	at Jenkins Main ClassLoader//org.eclipse.jetty.io.Retainable$ReferenceCounter.lambda$release$2(Retainable.java:192)
+	at java.base/java.util.concurrent.atomic.AtomicInteger.updateAndGet(AtomicInteger.java:281)
+	at Jenkins Main ClassLoader//org.eclipse.jetty.io.Retainable$ReferenceCounter.release(Retainable.java:189)
+	at Jenkins Main ClassLoader//org.eclipse.jetty.io.AbstractRetainableByteBuffer.release(AbstractRetainableByteBuffer.java:58)
+	at Jenkins Main ClassLoader//org.eclipse.jetty.io.ArrayByteBufferPool$Buffer.release(ArrayByteBufferPool.java:762)
+	at Jenkins Main ClassLoader//org.eclipse.jetty.server.internal.HttpConnection.releaseRequestBuffer(HttpConnection.java:343)
+	at Jenkins Main ClassLoader//org.eclipse.jetty.server.internal.HttpConnection.onFillable(HttpConnection.java:479)
+	at Jenkins Main ClassLoader//org.eclipse.jetty.server.internal.HttpConnection.run(HttpConnection.java:644)
+	at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:981)
+	at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1211)
+	at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1166)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-05-11 09:09:34.184+0000 [id=12020]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.tasks.Maven.MavenInstaller
+2025-05-11 09:09:35.729+0000 [id=12020]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.tasks.Ant.AntInstaller
+2025-05-11 09:09:37.288+0000 [id=12020]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.plugins.gradle.GradleInstaller
+2025-05-11 11:25:34.865+0000 [id=25]	INFO	winstone.Logger#logInternal: JVM is terminating. Shutting down Jetty
+2025-05-11 11:25:34.867+0000 [id=25]	INFO	org.eclipse.jetty.server.Server#doStop: Stopped oejs.Server@3daa422a{STOPPING}[12.0.20,sto=0]
+2025-05-11 11:25:34.878+0000 [id=25]	INFO	o.e.j.server.AbstractConnector#doStop: Stopped ServerConnector@36dce7ed{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2025-05-11 11:25:34.882+0000 [id=25]	INFO	hudson.lifecycle.Lifecycle#onStatusUpdate: Stopping Jenkins
+2025-05-11 11:25:35.052+0000 [id=25]	INFO	jenkins.model.Jenkins$17#onAttained: Started termination
+2025-05-11 11:25:35.146+0000 [id=25]	INFO	h.p.b.global.Lifecycle#shutdown: Shutdown complete - Global TimeOut ScheduledExecutorService had 0 tasks pending
+2025-05-11 11:25:35.147+0000 [id=25]	INFO	jenkins.model.Jenkins$17#onAttained: Completed termination
+2025-05-11 11:25:35.149+0000 [id=25]	INFO	jenkins.model.Jenkins#_cleanUpDisconnectComputers: Starting node disconnection
+2025-05-11 11:25:35.167+0000 [id=25]	INFO	jenkins.model.Jenkins#_cleanUpShutdownPluginManager: Stopping plugin manager
+2025-05-11 11:25:35.250+0000 [id=25]	INFO	jenkins.model.Jenkins#_cleanUpPersistQueue: Persisting build queue
+2025-05-11 11:25:35.265+0000 [id=25]	INFO	jenkins.model.Jenkins#_cleanUpAwaitDisconnects: Waiting for node disconnection completion
+2025-05-11 11:25:35.266+0000 [id=25]	INFO	hudson.lifecycle.Lifecycle#onStatusUpdate: Jenkins stopped
+Server is running on port 3030
+Error: ENOENT: no such file or directory, stat '/home/ubuntu/fantasy-cricket-backend/public/virat-kohli.jpg'

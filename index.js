@@ -71,65 +71,31 @@ app.listen(PORT, () => {
 });
 
 
-//Match addition  starts from here 
-
 app.use(express.json());
 
-// Sample playing XI for LSG & SRH (simplified)
-const matchData = {
-  match: "LSG vs SRH - IPL 2025",
-  teams: {
-    LSG: [
-      "KL Rahul", "Quinton de Kock", "Deepak Hooda", "Marcus Stoinis",
-      "Rashid Khan", "Avesh Khan", "Mohsin Khan", "Manan Vohra",
-      "Jason Holder", "Yash Thakur", "Kagiso Rabada"
-    ],
-    SRH: [
-      "Aiden Markram", "Abhishek Sharma", "Rahul Tripathi", "Nicholas Pooran",
-      "Washington Sundar", "Bhuvneshwar Kumar", "Umran Malik", "Kumar Kartikeya",
-      "Harry Brook", "T Natarajan", "Wrap"
-    ]
-  }
-};
+let players = [];
 
-// GET endpoint to fetch match and players
-app.get('/match', (req, res) => {
-  res.json(matchData);
+// Health check
+app.get('/', (req, res) => {
+  res.send('Fantasy Cricket App Backend is running 🚀');
 });
 
-// POST endpoint to submit user team
-app.post('/team', (req, res) => {
-  const selectedPlayers = req.body.players;
-  if (!Array.isArray(selectedPlayers)) {
-    return res.status(400).json({ error: "Players must be an array" });
+// Register a player
+app.post('/register-player', (req, res) => {
+  const { name, team } = req.body;
+  if (!name || !team) {
+    return res.status(400).json({ error: 'Name and team are required' });
   }
-  if (selectedPlayers.length !== 11) {
-    return res.status(400).json({ error: "You must select exactly 11 players" });
-  }
-
-  // Validate players exist in either team
-  const allPlayers = [...matchData.teams.LSG, ...matchData.teams.SRH];
-  for (let player of selectedPlayers) {
-    if (!allPlayers.includes(player)) {
-      return res.status(400).json({ error: `Invalid player selected: ${player}` });
-    }
-  }
-
-  // Prepare team preview grouped by team
-  const teamPreview = { LSG: [], SRH: [] };
-  selectedPlayers.forEach(player => {
-    if (matchData.teams.LSG.includes(player)) teamPreview.LSG.push(player);
-    else if (matchData.teams.SRH.includes(player)) teamPreview.SRH.push(player);
-  });
-
-  res.json({
-    message: "Team selection successful",
-    teamPreview,
-    totalPlayers: selectedPlayers.length
-  });
+  const player = { id: players.length + 1, name, team };
+  players.push(player);
+  res.status(201).json(player);
 });
 
-// Start the server on port 3030 (or your existing port)
-app.listen(3030, () => {
-  console.log('Fantasy Cricket backend running on port 3030');
+// View all players
+app.get('/players', (req, res) => {
+  res.json(players);
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
