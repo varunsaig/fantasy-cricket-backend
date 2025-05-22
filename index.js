@@ -1,3 +1,4 @@
+
 const express = require('express');
 const path = require('path');
 const app = express();
@@ -85,7 +86,7 @@ app.get('/players', (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`✅ Server is running on port ${PORT}`);
+  console.log(`✅ Server is smashing  on port ${PORT}`);
 });
 
 app.get('/health', (req, res) => {
@@ -95,3 +96,16 @@ app.get('/health', (req, res) => {
 app.get('/health', (req, res) => {
   res.status(200).send('OK');
 });
+
+
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+const userRoutes = require('./user');
+app.use('/api', userRoutes); // Enables /api/register
+
+app.listen(3030, () => {
+  console.log('Server running on port 3030');
+});
+
